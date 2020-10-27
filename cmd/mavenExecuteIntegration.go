@@ -12,7 +12,8 @@ import (
 )
 
 func mavenExecuteIntegration(config mavenExecuteIntegrationOptions, _ *telemetry.CustomData) {
-	err := runMavenExecuteIntegration(&config, maven.NewUtilsBundle())
+	utils := newMavenExecuteUtilsBundle()
+	err := runMavenExecuteIntegration(&config, utils)
 	if err != nil {
 		log.Entry().WithError(err).Fatal("step execution failed")
 	}

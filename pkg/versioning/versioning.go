@@ -33,11 +33,11 @@ type Options struct {
 
 type mvnRunner struct{}
 
-func (m *mvnRunner) Execute(options *maven.ExecuteOptions, execRunner mavenExecRunner) (string, error) {
-	return maven.Execute(options, execRunner)
+func (m *mvnRunner) Execute(options *maven.ExecuteOptions, utils maven.Utils) (string, error) {
+	return maven.Execute(options, utils)
 }
-func (m *mvnRunner) Evaluate(options *maven.EvaluateOptions, expression string, execRunner mavenExecRunner) (string, error) {
-	return maven.Evaluate(options, expression, execRunner)
+func (m *mvnRunner) Evaluate(options *maven.EvaluateOptions, expression string, utils maven.Utils) (string, error) {
+	return maven.Evaluate(options, expression, utils)
 }
 
 var fileExists func(string) (bool, error)
